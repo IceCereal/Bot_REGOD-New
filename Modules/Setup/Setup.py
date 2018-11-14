@@ -1,16 +1,47 @@
 import sys
 
+#Import
+sys.path.append("../Log/")
+import Log
+
 class Setup:
     def __init__(self):
-        print ("Running SETUP: Bot_REGOD")
-        Log.Log("START SETUP")
+        """
+            SETUP: Bot_REGOD
 
+            Runs:
+                > existSubreddit_File
+                > convertData
+
+            Returns:
+                > A list of 100 subreddits
+        """
+
+        print ("Running SETUP: Bot_REGOD")
+
+        Log.Log("SETUP: START")
+
+        #EXISTENCE OF LIST_OF_SUBREDDITS
         if (self.existSubdreddit_File() == -1):
-            Log.Log("SETUP FAIL")
+            Log.Log("SETUP: FAIL")
             sys.exit()
 
         Log.Log("existSubreddit_File: Complete")
+        #COMPLETE EXISTENCE OF LIST_OF_SUBREDDITS
 
+        #CONVERT DATA
+        subreddits = self.convertData()
+
+        if (subreddits == -1):
+            Log.Log("SETUP: FAIL")
+            sys.exit()
+
+        Log.Log("convertData: Complete")
+        #CONVERT DATA COMPLETE
+
+        Log.Log("SETUP: COMPLETE")
+
+        return subreddits
 
 
     def existSubdreddit_File(self):
@@ -22,10 +53,8 @@ class Setup:
 
         fileName = 'ListOfSubreddits'
 
-        print ("Checking Existence of ", fileName, "...")
-
         try:
-            fileObj = open('ListOfSubreddits', 'r')
+            fileObj = open(fileName, 'r')
             fileObj.close()
 
             return 1
@@ -35,5 +64,33 @@ class Setup:
             print (str(e))
 
             #errorLog(str(e), 1)
+
+            return -1
+
+
+    def convertData(self):
+        """
+        Convert the Subreddit Data File to Readable Data
+
+        fileName:   The name of the file that contains the subreddit data:  ListOfSubreddits
+        """
+
+        fileName = 'ListOfSubreddits'
+
+        try:
+            fileObj = open(fileName, 'r')
+
+            subredditsRaw = fileObj.read()
+            subreddits = literal_eval(subredditsRaw)
+
+            fileObj.close()
+
+            return subreddits
+
+        except Exception as e:
+            print ("\nError 2: Converting raw data to readable data")
+            print (str(e))
+
+            #errorLog(str(e), 2)
 
             return -1
