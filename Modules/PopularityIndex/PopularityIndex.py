@@ -46,9 +46,9 @@ class Popularity:
             Returns: int
         """
 
-    	if ( (ups+downs) > numComments):
-    		return (ups + downs)
-    	return numComments
+        if ( (ups+downs) > numComments):
+            return (ups + downs)
+        return numComments
 
 
     def popularityIndex_1(ups, downs):
