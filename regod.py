@@ -5,8 +5,16 @@ from time import sleep
 import praw
 import sys
 
-print ("\nBegin Bot_REGOD\nv1.0.0\nIceCereal\n\nObjective: To Collect Data\n")
-sleep(1)
+#Custom Imports
+sys.path.append("Modules/Log/")
+import Log
+
+sys.path.append("Modules/PopularityIndex/")
+import PopularityIndex
+
+sys.path.append("Modules/Setup/")
+import Setup
+
 
 #Create Reddit instance
 try:
@@ -96,6 +104,13 @@ def main():
 #Begin Main Loop
 try:
     if __name__ == '__main__':
+
+        print ("\nBegin Bot_REGOD")
+        print ("v1.0.0")
+        print ("IceCereal\n")
+        sleep(1)
+
+
         fi = open("MainLog", 'w')
         print ("\nTime:\t",str(datetime.now()))
         fi.write(str(datetime.now())+"\n")
