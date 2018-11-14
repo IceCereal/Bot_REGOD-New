@@ -12,7 +12,7 @@ class Popularity:
         self.popularityMode = popularityMode
 
 
-    def popularityIndex(self, ups, downs, numComments, popularityMode = None):
+    def popularityIndex(self, ups, downs, numComments):
         """
             POPULARITY INDEX CHOOSING FUNCTION
 
@@ -24,13 +24,10 @@ class Popularity:
             call.
         """
 
-        if popularityMode == None:
-            popularityMode = self.popularityMode
-
-        if popularityMode == 0:
+        if self.popularityMode == 0:
             return popularityIndex_0(ups, downs, numComments)
 
-        if popularityMode == 1:
+        if self.popularityMode == 1:
             return popularityIndex_1(ups, downs)
 
         return -1
@@ -50,7 +47,7 @@ class Popularity:
         """
 
     	if ( (ups+downs) > numComments):
-    		return (ups+downs)
+    		return (ups + downs)
     	return numComments
 
 
@@ -63,4 +60,4 @@ class Popularity:
             Returns: int
         """
 
-        return  (ups, downs)
+        return  (ups + downs)
