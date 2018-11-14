@@ -1,4 +1,6 @@
-class ErrorLog:
+from datetime import datetime
+
+class Log:
     def __init__(self, fileName = None, writeMode = None):
         """
             DEFINED IN __INIT__
