@@ -1,5 +1,6 @@
 import sys
 import subprocess
+from ast import literal_eval
 
 #Import
 sys.path.append("../Log/")
@@ -66,7 +67,7 @@ class Setup:
         fileName = 'ListOfSubreddits'
 
         try:
-            fileObj = open(fileName, 'r')
+            fileObj = open("Modules/Setup/"+fileName, 'r')
             fileObj.close()
 
             return 1
@@ -90,7 +91,7 @@ class Setup:
         fileName = 'ListOfSubreddits'
 
         try:
-            fileObj = open(fileName, 'r')
+            fileObj = open("Modules/Setup/"+fileName, 'r')
 
             subredditsRaw = fileObj.read()
             subreddits = literal_eval(subredditsRaw)
