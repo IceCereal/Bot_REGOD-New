@@ -1,4 +1,5 @@
 import sys
+import subprocess
 
 #Import
 sys.path.append("../Log/")
@@ -12,6 +13,9 @@ class Setup:
             Runs:
                 > existSubreddit_File
                 > convertData
+                > createDirs:
+                    * SubredditData
+                    * Logs
 
             Returns:
                 > A list of 100 subreddits
@@ -38,6 +42,14 @@ class Setup:
 
         Log.Log("convertData: Complete")
         #CONVERT DATA COMPLETE
+
+        #CREATE DIRECTORIES
+        if (self.createDirs() == -1):
+            Log.Log("SETUP: FAIL")
+            sys.exit()
+
+        Log.Log("createDirs: Complete")
+        #CREATE DIRECTORIES COMPLETE
 
         Log.Log("SETUP: COMPLETE")
 
@@ -70,9 +82,9 @@ class Setup:
 
     def convertData(self):
         """
-        Convert the Subreddit Data File to Readable Data
+            Convert the Subreddit Data File to Readable Data
 
-        fileName:   The name of the file that contains the subreddit data:  ListOfSubreddits
+            fileName:   The name of the file that contains the subreddit data:  ListOfSubreddits
         """
 
         fileName = 'ListOfSubreddits'
@@ -92,5 +104,26 @@ class Setup:
             print (str(e))
 
             #errorLog(str(e), 2)
+
+            return -1
+
+    def createDirs(self):
+        """
+            Creates Directories:
+                ../Log/Logs
+                ../../SubredditData
+        """
+
+        try:
+            subprocess.run(['mkdir', '../Log/Logs'])
+            subprocess.run(['mkdir', '../../SubredditData'])
+
+            return 1
+
+        except Exception as e:
+            print ("\nError *: Making Directories: Logs, SubredditData")
+            print (str(e))
+
+            #errorLog(str(e), *)
 
             return -1
