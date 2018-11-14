@@ -121,14 +121,19 @@ try:
         print ("IceCereal\n")
         sleep(1)
 
+        Log = Log()
 
-        fi = open("MainLog", 'w')
-        print ("\nTime:\t",str(datetime.now()))
-        fi.write(str(datetime.now())+"\n")
-        fi.close()
+        Log.Log("BEGIN: Bot_REGOD")
+
+        subreddits = Setup()
+        PopularityIndex = PopularityIndex()
+
         main(reddit, subreddits)
 
 except Exception as e:
-    filo = open("MainLog", 'w')
-    filo.write(str(datetime.now())+str(e))
-    print (e)
+    print ("\nError *: Main")
+    print (str(e))
+
+    #errorLog(e, 3)
+
+    sys.exit()
