@@ -120,12 +120,12 @@ if __name__ == '__main__':
     print ("IceCereal\n")
     sleep(1)
 
+    setup = Setup()
+    subreddits = setup.returnSubreddits()
+
     Log = Log()
 
     Log.Log("BEGIN: Bot_REGOD")
-
-    setup = Setup()
-    subreddits = setup.returnSubreddits()
 
     PopularityIndex = Popularity()
 
