@@ -16,34 +16,43 @@ sys.path.append("Modules/Setup/")
 import Setup
 
 
-#Create Reddit instance
-try:
-    with open("TOKEN", 'r') as FileObj:
-        credentialsRaw = FileObj.read()
-        credentials = literal_eval(credentialsRaw)
+def createRedditInstance():
+    #Creating A Reddit Instance
 
-except Exception as e:
-    print ("\nError 1. Reading TOKEN and Obtaining Credentials")
-    print (str(e))
-    #errorLog(e, 1)
-    sys.exit()
+    Log.Log("createRedditInstance: Begin")
 
-print ("Reddit Instance Creation")
-try:
-    reddit = praw.Reddit(
-                        client_id = credentials['client_id'],
-                        client_secret = credentials['client_secret'],
-                        user_agent = credentials['user_agent'],
-                        )
+    try:
+        with open("TOKEN", 'r') as FileObj:
+            credentialsRaw = FileObj.read()
+            credentials = literal_eval(credentialsRaw)
 
-except Exception as e:
-    print ("\nError 3: Authentication")
-    print (str(e))
-    #errorLog(e, 3)
-    sys.exit()
+    except Exception as e:
+        print ("\nError *. Reading TOKEN and Obtaining Credentials")
+        print (str(e))
+        #errorLog(e, 1)
+        sys.exit()
 
-#### SETUP COMPLETE ####
-print ("Setup Complete\n")
+    print ("Authenticating the Reddit Credentials")
+
+    try:
+        reddit = praw.Reddit(
+                            client_id = credentials['client_id'],
+                            client_secret = credentials['client_secret'],
+                            user_agent = credentials['user_agent'],
+                            )
+
+    except Exception as e:
+        print ("\nError *: Authentication")
+        print (str(e))
+
+        #errorLog(e, 3)
+
+        sys.exit()
+
+    print ("\tAuthentication Complete\n")
+
+    return reddit
+    #### REDDIT INSTANCE CREATED ####
 
 #Main Loop
 def main():
