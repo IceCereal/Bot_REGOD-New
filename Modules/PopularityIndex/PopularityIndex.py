@@ -25,10 +25,10 @@ class Popularity:
         """
 
         if self.popularityMode == 0:
-            return popularityIndex_0(ups, downs, numComments)
+            return self.popularityIndex_0(ups, downs, numComments)
 
         if self.popularityMode == 1:
-            return popularityIndex_1(ups, downs)
+            return self.popularityIndex_1(ups, downs)
 
         return -1
 
