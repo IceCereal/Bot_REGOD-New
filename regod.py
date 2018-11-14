@@ -5,67 +5,27 @@ from time import sleep
 import praw
 import sys
 
-#Logger Function
-def errorLog(exception : str, number : int):
-    fileObj = open("Bot_REGOD-log", 'a')
-    fileObj.write("\n"+str(datetime.now()))
-    fileObj.write("\nError Location:\t"+str(number))
-    fileObj.write("\nError:\t"+e)
-    fileObj.write("\n------------------\n")
-    fileObj.close()
-
-#Popularity Index Function
-def popularityIndex(ups, downs, numComments):
-	if ( (ups+downs) > numComments):
-		return (ups+downs)
-	return numComments
-
 print ("\nBegin Bot_REGOD\nv1.0.0\nIceCereal\n\nObjective: To Collect Data\n")
 sleep(1)
 
-#Check If Subreddits-File Exists
-print ("ListOfSubreddits verification")
-try:
-    fileObj = open('ListOfSubreddits', 'r')
-
-except Exception as e:
-    print ("\nError 1: Opening ListOfSubreddits")
-    print (str(e))
-    errorLog(str(e), 1)
-    sys.exit()
-
-#Convert The Subreddit Data to Readable Data
-print ("Convert Subreddit Data to Readable Data")
-try:
-    subredditsRaw = fileObj.read()
-    #subreddits = literal_eval(subredditsRaw)
-    fileObj.close()
-    word = []
-    subrs = []
-    for char in subredditsRaw:
-        if char == "\n":
-            subrs.append(''.join(word))
-            word = []
-            continue
-        else:
-            word.append(char)
-    subreddits = subrs[0:len(subrs)-1]
-    print (subreddits)
-    print (len(subreddits))
-    #print ("\n\nEnter?")
-    #a = input()
-
-except Exception as e:
-    print ("\nError 2: Converting raw data to readable data")
-    print (str(e))
-    errorLog(str(e), 2)
-    sys.exit()
-
 #Create Reddit instance
+try:
+    with open("TOKEN", 'r') as FileObj:
+        credentialsRaw = FileObj.read()
+        credentials = literal_eval(credentialsRaw)
+
+except Exception as e:
+    print ("\nError 1. Reading TOKEN and Obtaining Credentials")
+    print (str(e))
+    #errorLog(e, 1)
+    sys.exit()
+
 print ("Reddit Instance Creation")
 try:
     reddit = praw.Reddit(
-                        #THIS IS A SECRET
+                        client_id = credentials['client_id'],
+                        client_secret = credentials['client_secret'],
+                        user_agent = credentials['user_agent'],
                         )
 
 except Exception as e:
