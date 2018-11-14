@@ -35,15 +35,15 @@ class Log:
 
             Writes it as:
             TIMESTAMP
-            Error Location: LOCATION NUMBER
+            Error Number: LOCATION NUMBER
             Error:  ERROR
             ------------------
         """
 
-        fileObj = open(self.fileName, self.writeMode)
+        fileObj = open(self.fileName_error, self.writeMode_error)
 
-        fileObj.write("\n"+str(datetime.now()))
-        fileObj.write("\nError Location:\t"+str(number))
+        fileObj.write("\n\n"+str(datetime.now()))
+        fileObj.write("\nError Number:\t"+str(number))
         fileObj.write("\nError:\t"+exception)
         fileObj.write("\n------------------\n")
 
