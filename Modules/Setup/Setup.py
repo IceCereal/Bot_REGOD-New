@@ -35,9 +35,9 @@ class Setup:
         #COMPLETE EXISTENCE OF LIST_OF_SUBREDDITS
 
         #CONVERT DATA
-        subreddits = self.convertData()
+        self.subreddits = self.convertData()
 
-        if (subreddits == -1):
+        if (self.subreddits == -1):
             Log.Log("SETUP: FAIL")
             sys.exit()
 
@@ -53,8 +53,6 @@ class Setup:
         #CREATE DIRECTORIES COMPLETE
 
         Log.Log("SETUP: COMPLETE")
-
-        return subreddits
 
 
     def existSubdreddit_File(self):
@@ -128,3 +126,6 @@ class Setup:
             #errorLog(str(e), *)
 
             return -1
+
+    def returnSubreddits(self):
+        return self.subreddits
