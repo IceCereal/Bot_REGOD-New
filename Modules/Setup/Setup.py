@@ -24,6 +24,14 @@ class Setup:
 
         print ("Running SETUP: Bot_REGOD")
 
+        #CREATE DIRECTORIES
+        if (self.createDirs() == -1):
+            print ("Setup Fail")
+            sys.exit()
+
+        Log.Log("createDirs: Complete")
+        #CREATE DIRECTORIES COMPLETE
+
         Log.Log("SETUP: START")
 
         #EXISTENCE OF LIST_OF_SUBREDDITS
@@ -43,14 +51,6 @@ class Setup:
 
         Log.Log("convertData: Complete")
         #CONVERT DATA COMPLETE
-
-        #CREATE DIRECTORIES
-        if (self.createDirs() == -1):
-            Log.Log("SETUP: FAIL")
-            sys.exit()
-
-        Log.Log("createDirs: Complete")
-        #CREATE DIRECTORIES COMPLETE
 
         Log.Log("SETUP: COMPLETE")
 
