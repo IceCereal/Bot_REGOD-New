@@ -7,13 +7,13 @@ import sys
 
 #Custom Imports
 sys.path.append("Modules/Log/")
-import Log
+from Log import Log
 
 sys.path.append("Modules/PopularityIndex/")
-import PopularityIndex
+from PopularityIndex import Popularity
 
 sys.path.append("Modules/Setup/")
-import Setup
+from Setup import Setup
 
 
 def createRedditInstance():
@@ -113,27 +113,18 @@ def main(reddit, subreddits):
             sleep(9)
 
 #Begin Main Loop
-try:
-    if __name__ == '__main__':
+if __name__ == '__main__':
 
-        print ("\nBegin Bot_REGOD")
-        print ("v1.0.0")
-        print ("IceCereal\n")
-        sleep(1)
+    print ("\nBegin Bot_REGOD")
+    print ("v1.0.0")
+    print ("IceCereal\n")
+    sleep(1)
 
-        Log = Log()
+    Log = Log()
 
-        Log.Log("BEGIN: Bot_REGOD")
+    Log.Log("BEGIN: Bot_REGOD")
 
-        subreddits = Setup()
-        PopularityIndex = PopularityIndex()
+    subreddits = Setup()
+    PopularityIndex = PopularityIndex()
 
-        main(reddit, subreddits)
-
-except Exception as e:
-    print ("\nError *: Main")
-    print (str(e))
-
-    #errorLog(e, 3)
-
-    sys.exit()
+    main(reddit, subreddits)
