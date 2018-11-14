@@ -3,6 +3,7 @@ TOKEN
 
 # Logs
 Bot_REGOD-log
+Bot_REGOD-Error-log
 MainLog
 
 # SubredditData/
