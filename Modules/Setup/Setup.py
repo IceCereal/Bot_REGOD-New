@@ -111,12 +111,12 @@ class Setup:
         """
             Creates Directories:
                 ../Log/Logs
-                ../../SubredditData
+                ../SubredditData/
         """
 
         try:
-            subprocess.run(['mkdir', '../Log/Logs'])
-            subprocess.run(['mkdir', '../../SubredditData'])
+            subprocess.run(['mkdir', '../Log/Logs/'])
+            subprocess.run(['mkdir', '../SubredditData/'])
 
             return 1
 
