@@ -15,16 +15,16 @@ class Log:
         """
 
         if fileName_regular == None:
-            fileName = "Bot_REGOD-log"
+            fileName_regular = "Bot_REGOD-log"
 
         if writeMode_regular == None:
-            writeMode = 'a'
+            writeMode_regular = 'a'
 
         if fileName_error == None:
-            fileName = "Bot_REGOD-Error-log"
+            fileName_error = "Bot_REGOD-Error-log"
 
         if writeMode_error == None:
-            writeMode = 'a'
+            writeMode_error = 'a'
 
         self.fileName_regular = fileName_regular
         self.writeMode_regular = writeMode_regular
