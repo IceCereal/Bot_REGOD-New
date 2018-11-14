@@ -48,3 +48,17 @@ class Log:
         fileObj.write("\n------------------\n")
 
         fileObj.close()
+
+    def Log(self, loggingString: str):
+        """
+            NORMAL LOGGING FUNCTION
+
+            Writes it as:
+            [TIMESTAMP] | [Logging String]
+        """
+
+        fileObj = open(self.fileName_regular, self.writeMode_regular)
+
+        fileObj.write("\n[" + str(datetime.now()) + "] | [" + loggingString + "]")
+
+        fileObj.close()
