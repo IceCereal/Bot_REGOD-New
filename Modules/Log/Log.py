@@ -1,22 +1,32 @@
 from datetime import datetime
 
 class Log:
-    def __init__(self, fileName = None, writeMode = None):
+    def __init__(self, fileName_regular = None, writeMode_regular = None, fileName_error = None, writeMode_error = None):
         """
             DEFINED IN __INIT__
 
-            fileName:   Name of the file:   Bot_REGOD-log (default)
-            writeMode:  a:  append (default)
+            fileName_regular:   Name of the regular log file:   Bot_REGOD-log (default)
+            writeMode_regular:  a:  append (default)
+            fileName_error:     Name of the error log file:     Bot_REGOD-Error-Log (default)
+            writeMode_error:    a:  append (default)
         """
 
-        if fileName == None:
+        if fileName_regular == None:
             fileName = "Bot_REGOD-log"
 
-        if writeMode == None:
+        if writeMode_regular == None:
             writeMode = 'a'
 
-        self.fileName = fileName
-        self.writeMode = writeMode
+        if fileName_error == None:
+            fileName = "Bot_REGOD-Error-log"
+
+        if writeMode_error == None:
+            writeMode = 'a'
+
+        self.fileName_regular = fileName_regular
+        self.writeMode_regular = writeMode_regular
+        self.fileName_error = fileName_error
+        self.writeMode_error = writeMode_error
 
 
     def errorLog(self, exception : str, number : int):
