@@ -55,7 +55,7 @@ def createRedditInstance():
     #### REDDIT INSTANCE CREATED ####
 
 #Main Loop
-def main():
+def main(reddit, subreddits):
     print ("Begin Main Loop")
 
     #Infinite Loop
@@ -78,7 +78,7 @@ def main():
                 postVars = vars(post)
 
                 #Check the popularity of given post #Params Passed: Upvotes, Downvotes, Number of Comments
-                popularity = popularityIndex(int(postVars['ups']), int(postVars['downs']), int(postVars['num_comments']))
+                popularity = PopularityIndex.popularityIndex(int(postVars['ups']), int(postVars['downs']), int(postVars['num_comments']))
 
                 #Append the popularity to the popularityList
                 popularityList.append(popularity)
@@ -103,9 +103,11 @@ def main():
             outputFileList.append(popularityList)
 
             #Write The outputFileList to the File
-            subRFileObj = open("SubredditData/"+subr, 'a')
+            subRFileObj = open("Modules/SubredditData/"+subr, 'a')
             subRFileObj.write("$"+str(outputFileList))
             subRFileObj.close()
+
+            Log.SubredditLog(subr)
 
             #Nap for 9 seconds
             sleep(9)
@@ -124,7 +126,7 @@ try:
         print ("\nTime:\t",str(datetime.now()))
         fi.write(str(datetime.now())+"\n")
         fi.close()
-        main()
+        main(reddit, subreddits)
 
 except Exception as e:
     filo = open("MainLog", 'w')
