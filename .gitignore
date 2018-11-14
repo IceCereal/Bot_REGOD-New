@@ -2,9 +2,10 @@
 TOKEN
 
 # Logs
-Bot_REGOD-log
-Bot_REGOD-Error-log
-MainLog
+Modules/Log/Logs/
 
 # SubredditData/
 SubredditData/
+
+# Pycaches
+__pycache__/
