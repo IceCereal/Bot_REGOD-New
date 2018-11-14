@@ -124,7 +124,11 @@ if __name__ == '__main__':
 
     Log.Log("BEGIN: Bot_REGOD")
 
-    subreddits = Setup()
-    PopularityIndex = PopularityIndex()
+    setup = Setup()
+    subreddits = setup.returnSubreddits()
+
+    PopularityIndex = Popularity()
+
+    reddit = createRedditInstance()
 
     main(reddit, subreddits)
