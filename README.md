@@ -18,7 +18,7 @@ The data has been collected for 24 hours and accordingly uploaded to <a href="ht
 &nbsp;&nbsp;&nbsp;&nbsp;`$[str(datetime.datetime.now()), [popularity - explained below]]`
     
 popularity:
-> Popularity is a Python list that contain the subreddits top ten popular values (Popularity Index) of the past hour. They are > arranged in descending order. If there are insufficient values, the rest are replaced by zero.
+> Popularity is a Python list that contain the subreddits top ten popular values (Popularity Index) of the past hour. They are   arranged in descending order. If there are insufficient values, the rest are replaced by zero.
 
 Example Data collected:<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;`$['2018-11-14 21:21:48.136096', [93, 67, 61, 53, 48, 46, 44, 42, 41, 40]]`
