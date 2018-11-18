@@ -11,5 +11,5 @@ The REddit_Gatherer_Of_Data (REGOD) is a bot developed to get data from the top 
 
 The old bot (worked on some other algo) is <a href="https://github.com/IceCereal/Bot_REGOD">here</a><br/><br/>
 Main Bot: <a href="https://github.com/IceCereal/Bot_REGOD-New/blob/master/regod.py">REGOD</a><br/>
-Subreddit List: <a href="https://github.com/IceCereal/Bot_REGOD-New/blob/master/ListOfSubreddits">ListOfSubreddits</a><br/>
+Subreddit List: <a href="https://github.com/IceCereal/Bot_REGOD-New/blob/master/Modules/Setup/ListOfSubreddits">ListOfSubreddits</a><br/>
 PostVars: <a href="https://github.com/IceCereal/Bot_REGOD-New/blob/master/PostVars.txt">A file of all the variables (JSON) that a post has</a><br/><br/>
